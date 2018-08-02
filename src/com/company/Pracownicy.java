@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -9,7 +10,7 @@ public class Pracownicy {
 
     private String imie;
     private String nazwisko;
-    private UUID uuid= UUID.randomUUID();
+    private UUID uuid = UUID.randomUUID();
 
 
     public String getImie() {
@@ -37,16 +38,13 @@ public class Pracownicy {
     }
 
 
-    public Pracownicy(String imie, String nazwisko, UUID uuid) {
+    public Pracownicy(String imie, String nazwisko, UUID uuid) {  //konstruktor pracownika
         this.imie = getImie();
         this.nazwisko = getNazwisko();
-        this.uuid=uuid;
+        this.uuid = uuid;
     }
 
-    List<Pracownicy> listaPracownikow = new ArrayList<Pracownicy>();
-    
-
-
 }
+
 
 
