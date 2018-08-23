@@ -5,42 +5,44 @@ import java.util.SortedMap;
 import java.util.UUID;
 
 public class Main extends Menu implements Narzedzia {
+    private static PracownikAdd pracownikAdd = new PracownikAdd();
+
+
     public static void main(String[] args) {
-        Pracownicy pracownicy =new Pracownicy("","",UUID.randomUUID());
+
+
 
         boolean exit = false;
         do {
+            Pracownicy konstruktorPracownika =new Pracownicy("","",UUID.randomUUID());
             Menu.wyswietlMenuGlowne();
 
-            int wyborMenu = Narzedzia.odczytCyfr.nextInt();
+            int wyborMenu = odczyt.nextInt();
             switch (wyborMenu) {
                 case 1:
-                    System.out.println("Wybrano 1 - Dodaj nowego pracownika");
+                    System.out.println("Wybrano 1 - Dodajemy nowego pracownika");
                     Menu.wyswietlPodMenu1();
-                    Narzedzia.odczytCyfr.nextInt();
-
-                    System.out.println("Podaj imię nowego pracownika: ");
-                    pracownicy.setImie(Narzedzia.odczytPodMenu01.nextLine());
-                    //pracownik.setImie(Narzedzia.odczytPodMenu01.nextLine());
-
-                    System.out.println("Podaj jego nazwisko: ");
-                    pracownicy.setNazwisko(Narzedzia.odczytPodMenu01.nextLine());
-                 //   pracownik.setNazwisko(Narzedzia.odczytPodMenu01.nextLine());
-
-                 //  System.out.println(pracownik.getImie() + " " + pracownik.getNazwisko() + " " + pracownik.getUuid().toString());
-                    System.out.println(pracownicy.getImie()+ " "+ pracownicy.getNazwisko() + " "+pracownicy.getUuid().toString());
-                    pracownikAdd.dodajPracownika(pracownicy);
-
-                    switch (wyborMenu) {
+                    int wyborPodMenu = odczyt.nextInt();
+                    switch (wyborPodMenu) {
                         case 1:
+                            System.out.println("Pracownik produkcji: ");
+                            pracownikAdd.dodajPracownikaProdukcji(konstruktorPracownika);
                             break;
                         case 2:
+                            System.out.println("Pracownik biura: ");
+                            pracownikAdd.dodajPracownikaBiurowego(konstruktorPracownika);
                             break;
                         case 3:
+                            System.out.println("Pracownik sekretariatu: ");
+                            pracownikAdd.dodajPracownikaSekretariatu(konstruktorPracownika);
                             break;
                         case 4:
+                            System.out.println("Pracownik Księgowości: " );
+                            pracownikAdd.dodajPracownikaKsiegowosci(konstruktorPracownika);
                             break;
                         case 5:
+                            System.out.println("Nowy zastępca Prezesa: ");
+                            pracownikAdd.dodajZastepcePrezesa(konstruktorPracownika);
                             break;
                         case 0:
                             System.out.println("Wybrano: Exit");
@@ -57,8 +59,8 @@ public class Main extends Menu implements Narzedzia {
                     break;
                 case 4:
                     System.out.println("Wybrano 4   Wyświetlam liste wszystkich pracownikow...");
-                    System.out.println("Ilość pracowników: " + pracownikAdd.listaPracownikow.size());
-                    PracownikAdd.wyswietlListePracownikow(pracownicy);
+                    PracownikAdd.wyswietlListePracownikow(konstruktorPracownika);
+
                     break;
                 case 5:
                     System.out.println("Wybrano 5");
@@ -69,7 +71,6 @@ public class Main extends Menu implements Narzedzia {
                 default:
                     System.out.println("Wybrano nieprawidłową wartość");
             }
-            Menu.wyswietlMenuGlowne();
         } while (exit = true);
     }
 }

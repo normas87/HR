@@ -35,6 +35,14 @@ public class Pracownicy {
         this.uuid = uuid;
     }
 
+    @Override
+    public String toString() {
+        return "" +
+                "imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                ", uuid=" + uuid +
+                '}';
+    }
 }
 
 
