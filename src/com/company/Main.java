@@ -1,11 +1,9 @@
 package com.company;
 
-import java.util.Scanner;
-import java.util.SortedMap;
 import java.util.UUID;
 
 public class Main extends Menu implements Narzedzia {
-    private static PracownikAdd pracownikAdd = new PracownikAdd();
+    private static PracownikProcesing pracownikProcesing = new PracownikProcesing();
 
 
     public static void main(String[] args) {
@@ -26,23 +24,23 @@ public class Main extends Menu implements Narzedzia {
                     switch (wyborPodMenu) {
                         case 1:
                             System.out.println("Pracownik produkcji: ");
-                            pracownikAdd.dodajPracownikaProdukcji(konstruktorPracownika);
+                            pracownikProcesing.dodajPracownikaProdukcji(konstruktorPracownika);
                             break;
                         case 2:
                             System.out.println("Pracownik biura: ");
-                            pracownikAdd.dodajPracownikaBiurowego(konstruktorPracownika);
+                            pracownikProcesing.dodajPracownikaBiurowego(konstruktorPracownika);
                             break;
                         case 3:
                             System.out.println("Pracownik sekretariatu: ");
-                            pracownikAdd.dodajPracownikaSekretariatu(konstruktorPracownika);
+                            pracownikProcesing.dodajPracownikaSekretariatu(konstruktorPracownika);
                             break;
                         case 4:
                             System.out.println("Pracownik Księgowości: " );
-                            pracownikAdd.dodajPracownikaKsiegowosci(konstruktorPracownika);
+                            pracownikProcesing.dodajPracownikaKsiegowosci(konstruktorPracownika);
                             break;
                         case 5:
                             System.out.println("Nowy zastępca Prezesa: ");
-                            pracownikAdd.dodajZastepcePrezesa(konstruktorPracownika);
+                            pracownikProcesing.dodajZastepcePrezesa(konstruktorPracownika);
                             break;
                         case 0:
                             System.out.println("Wybrano: Exit");
@@ -52,14 +50,15 @@ public class Main extends Menu implements Narzedzia {
                     }
                     break;
                 case 2:
-                    System.out.println("Wybrano 2");
+                    System.out.println("Wybrano 2 = Usun pracownika");
+                    PracownikProcesing.usunPracownika();
                     break;
                 case 3:
                     System.out.println("Wybrano 3");
                     break;
                 case 4:
                     System.out.println("Wybrano 4   Wyświetlam liste wszystkich pracownikow...");
-                    PracownikAdd.wyswietlListePracownikow(konstruktorPracownika);
+                    PracownikProcesing.wyswietlListePracownikow(konstruktorPracownika);
 
                     break;
                 case 5:
