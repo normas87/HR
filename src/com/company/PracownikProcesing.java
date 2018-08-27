@@ -21,10 +21,9 @@ public class PracownikProcesing implements Narzedzia {
     static List<Pracownicy> listaPracownikowSekretariatu = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaPracownikowKsiegowosci = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaZastepcowPrezesa = new ArrayList<Pracownicy>();
-
     {
-        listaZastepcowPrezesa.add(new Pracownicy("Norbert", "Masełko", UUID.randomUUID()));
-    }
+        listaZastepcowPrezesa.add(new Pracownicy("Janusz", "Kowalski", UUID.randomUUID()));
+     }
 
 
     public void dodajPracownikaProdukcji(Pracownicy pracownik) {
@@ -55,10 +54,10 @@ public class PracownikProcesing implements Narzedzia {
 
     public void dodajPracownika(Pracownicy pracownik) {
         System.out.println("Podaj imię nowego pracownika: ");
-        pracownik.setImie(odczytPodMenu01.nextLine());
+        pracownik.setImie(odczyt.next());
 
         System.out.println("Podaj jego nazwisko: ");
-        pracownik.setNazwisko(odczytPodMenu01.nextLine());
+        pracownik.setNazwisko(odczyt.next());
 
         System.out.println("Pracownik :" + pracownik.getImie() + " " + pracownik.getNazwisko() + " " + pracownik.getUuid().toString());
 
@@ -88,18 +87,18 @@ public class PracownikProcesing implements Narzedzia {
     }
 
     static void usunPracownika() {
-
+        Pracownicy znalezionyDoZwolnienia=null;
         for (Pracownicy x : listaPracownikowProdukcji) {
             System.out.println("Wprowadź imie pracownika do zwolnienia: ");
 
-            String szukanyPracownikDoZwolnienia;
-            szukanyPracownikDoZwolnienia = odczyt.next();
-            Pracownicy znalezionyDoZwolnienia;
+            String szukanyPracownikDoZwolnienia=odczyt.next();
+
             if (x.getImie().equals(szukanyPracownikDoZwolnienia)) {
                 znalezionyDoZwolnienia = x;
-                listaPracownikowProdukcji.remove(znalezionyDoZwolnienia);
             }
         }
+        listaPracownikowProdukcji.remove(znalezionyDoZwolnienia);
+
     }
 
 

@@ -28,7 +28,7 @@ public class Main extends Menu implements Narzedzia {
                             break;
                         case 2:
                             System.out.println("Pracownik biura: ");
-                            pracownikProcesing.dodajPracownikaBiurowego(konstruktorPracownika);
+                      pracownikProcesing.dodajPracownikaBiurowego(konstruktorPracownika);
                             break;
                         case 3:
                             System.out.println("Pracownik sekretariatu: ");

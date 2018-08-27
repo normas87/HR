@@ -30,8 +30,8 @@ public class Pracownicy {
     }
 
     public Pracownicy(String imie, String nazwisko, UUID uuid) {  //konstruktor pracownika
-        this.imie = getImie();
-        this.nazwisko = getNazwisko();
+        this.imie = imie;
+        this.nazwisko = nazwisko;
         this.uuid = uuid;
     }
 
