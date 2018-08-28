@@ -1,8 +1,9 @@
 package com.company;
 
+import java.util.Scanner;
 import java.util.UUID;
 
-public class Main extends Menu implements Narzedzia {
+public class Main extends Menu {
     private static PracownikProcesing pracownikProcesing = new PracownikProcesing();
 
 
@@ -14,7 +15,7 @@ public class Main extends Menu implements Narzedzia {
         do {
             Pracownicy konstruktorPracownika =new Pracownicy("","",UUID.randomUUID());
             Menu.wyswietlMenuGlowne();
-
+            Scanner odczyt = new Scanner(System.in);
             int wyborMenu = odczyt.nextInt();
             switch (wyborMenu) {
                 case 1:

@@ -2,9 +2,10 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.UUID;
+public class PracownikProcesing extends Narzedzia {
 
-public class PracownikProcesing implements Narzedzia {
 
 //    static List<Pracownicy> listaPracownikow = new ArrayList<Pracownicy>();
 
@@ -21,9 +22,10 @@ public class PracownikProcesing implements Narzedzia {
     static List<Pracownicy> listaPracownikowSekretariatu = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaPracownikowKsiegowosci = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaZastepcowPrezesa = new ArrayList<Pracownicy>();
+
     {
         listaZastepcowPrezesa.add(new Pracownicy("Janusz", "Kowalski", UUID.randomUUID()));
-     }
+    }
 
 
     public void dodajPracownikaProdukcji(Pracownicy pracownik) {
@@ -87,39 +89,21 @@ public class PracownikProcesing implements Narzedzia {
     }
 
     static void usunPracownika() {
-        Pracownicy znalezionyDoZwolnienia=null;
+        String znalezionyPracownikDoZwolnienia = null;
         for (Pracownicy x : listaPracownikowProdukcji) {
-            System.out.println("Wprowadź imie pracownika do zwolnienia: ");
+            System.out.println("Wprowadź id pracownika do zwolnienia: ");
+            Scanner odczyt = new Scanner(System.in);
+            String szukanyPracownikDoZwolnienia = odczyt.next();
 
-            String szukanyPracownikDoZwolnienia=odczyt.next();
-
-            if (x.getImie().equals(szukanyPracownikDoZwolnienia)) {
-                znalezionyDoZwolnienia = x;
+            if (x.getUuid().equals(szukanyPracownikDoZwolnienia)) {
+                znalezionyPracownikDoZwolnienia =x.toString();
             }
         }
-        listaPracownikowProdukcji.remove(znalezionyDoZwolnienia);
-
+        listaPracownikowProdukcji.remove(znalezionyPracownikDoZwolnienia.toString());
     }
-
-
-//        List<Pracownicy> listyPolaczone = new ArrayList<Pracownicy>();
-//        listyPolaczone.addAll(listaPracownikowProdukcji);
-//        listyPolaczone.addAll(listaPracownikowBiura);
-//        listyPolaczone.addAll(listaPracownikowKsiegowosci);
-//        listyPolaczone.addAll(listaPracownikowSekretariatu);
-//        listyPolaczone.addAll(listaZastepcowPrezesa);
-//
-//        for (Pracownicy x : listyPolaczone) {
-//            System.out.println("Wprowadź ID pracownika do zwolnienia: ");
-//            String szukanyPracownikDoZwolnienia;
-//            szukanyPracownikDoZwolnienia = odczyt.next();
-////            if (x.getUuid().equals(szukanyPracownikDoZwolnienia)) {
-////                listyPolaczone.remove(x);
-//
-//                if (x.getImie().equals(szukanyPracownikDoZwolnienia)){
-//                    listyPolaczone.remove(x);
-//                }
 }
+
+
 
 
 
