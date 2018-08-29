@@ -89,17 +89,17 @@ public class PracownikProcessing extends Narzedzia {
     }
 
     static void usunPracownika() {
-        String znalezionyPracownikDoZwolnienia = null;
+        Pracownicy znalezionyPracownikDoZwolnienia = null;
+        System.out.println("Wprowadź id pracownika do zwolnienia: ");
+        Scanner odczyt = new Scanner(System.in);
+        String szukanyPracownikDoZwolnienia = odczyt.next();
         for (Pracownicy x : listaPracownikowProdukcji) {
-            System.out.println("Wprowadź id pracownika do zwolnienia: ");
-            Scanner odczyt = new Scanner(System.in);
-            String szukanyPracownikDoZwolnienia = odczyt.next();
-
-            if (x.getUuid().equals(szukanyPracownikDoZwolnienia)) {
-                znalezionyPracownikDoZwolnienia =x.toString();
+            if (x.getUuid().equals(UUID.fromString(szukanyPracownikDoZwolnienia))) {
+                znalezionyPracownikDoZwolnienia =x;
+                break;
             }
         }
-        listaPracownikowProdukcji.remove(znalezionyPracownikDoZwolnienia.toString());
+        listaPracownikowProdukcji.remove(znalezionyPracownikDoZwolnienia);
     }
 }
 
