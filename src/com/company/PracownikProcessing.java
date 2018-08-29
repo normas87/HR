@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
-public class PracownikProcesing extends Narzedzia {
+public class PracownikProcessing extends Narzedzia {
 
 
 //    static List<Pracownicy> listaPracownikow = new ArrayList<Pracownicy>();
