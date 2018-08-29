@@ -66,14 +66,15 @@ public class Main extends Menu {
                         case 0:
                             System.out.println("Wybrano EXIT");
                             System.exit(0);
+                            break;
                         default:
                             System.out.println("Wybrano nieprawidłową wartość");
-                    }
+                    } break;
                 case 4:
                     System.out.println("4 = Wyświetl liste wszystkich pracownikow");
                     PracownikProcessing.wyswietlListePracownikow(konstruktorPracownika);
+                    break;
             }
-        }
-        while (exit = true);
+        } while (exit = true);
     }
 }

@@ -1,26 +1,35 @@
 package com.company;
 
 import java.util.Scanner;
+import java.util.UUID;
 
 public class SzukanieProcessing extends PracownikProcessing {
-
     static void znajdzPracownikaProdukcji() {
-        System.out.println("Pracownik produkcji ");
-        System.out.println("Wpisz imie, nazwisko lub ID pracownika do wyświetlenia:");
+        Pracownicy znalezionyPracownikProdukcji = null;
+//        System.out.println("Pracownik produkcji ");
+//        System.out.println("Wpisz ID pracownika do wyświetlenia:");
+//        Narzedzia narzedzia = new Narzedzia();
+        Scanner odczyt = new Scanner(System.in);
+        String szukanyCiagZnakow = odczyt.nextLine();
+//        for (Pracownicy x : listaPracownikowProdukcji) {
+//            String pracownikJakoCiagZnakow = x.getImie() + x.getNazwisko() + x.getUuid();
+//            if (pracownikJakoCiagZnakow.equals(szukanyCiagZnakow)) {
+//                znalezionyPracownikProdukcji = x;
+//                break;
+//            }
+//            System.out.println("+++ Znaleziony pracownik to: " + x + " +++");
+//
+//        }
 
-        String znalezionyPracownikProdukcji = null;
+
         for (Pracownicy x : listaPracownikowProdukcji) {
-            Narzedzia narzedzia = new Narzedzia();
-            String szukanyCiagZnakow = narzedzia.odczyt.nextLine();
-            Scanner odczyt = new Scanner(System.in);
-
-            String pracownikCiagZnakow = x.getImie() +" "+ x.getNazwisko() +" " + x.getUuid().toString();
-
-            if (pracownikCiagZnakow.contains(szukanyCiagZnakow))
-
-                znalezionyPracownikProdukcji = pracownikCiagZnakow;
+            if (x.getUuid().equals(UUID.fromString(szukanyCiagZnakow))) {
+                znalezionyPracownikProdukcji = x;
+                break;
+            }
+            System.out.println("Nie znaleziono pasującego rekordu ");
         }
-        System.out.println("+_+_+_+_+Znaleziony pracownik to: +_+_+_+_+" + znalezionyPracownikProdukcji);
+        System.out.println("+++ Znaleziony pracownik to: " + znalezionyPracownikProdukcji + " +++");
     }
 }
 
