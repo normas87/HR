@@ -1,7 +1,4 @@
 package com.company;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 public class Pracownicy {
@@ -9,6 +6,7 @@ public class Pracownicy {
     private String imie;
     private String nazwisko;
     private UUID uuid = UUID.randomUUID();
+    private Stanowisko stanowisko;
 
     public String getImie() {
         return imie;
@@ -29,18 +27,28 @@ public class Pracownicy {
         this.uuid = uuid;
     }
 
-    public Pracownicy(String imie, String nazwisko, UUID uuid) {  //konstruktor pracownika
+    public void setStanowiska(Stanowisko stanowisko) {
+        this.stanowisko = stanowisko;
+    }
+
+    public Pracownicy(String imie, String nazwisko, UUID uuid, Stanowisko stanowisko) {  //konstruktor pracownika
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.uuid = uuid;
+        this.stanowisko=stanowisko;
+    }
+    public Pracownicy(String imie, String nazwisko){
+        this.imie=imie;
+        this.nazwisko=nazwisko;
     }
 
     @Override
     public String toString() {
-        return "" +
+        return " {" +
                 "imie='" + imie + '\'' +
                 ", nazwisko='" + nazwisko + '\'' +
                 ", uuid=" + uuid +
+                ", stanowisko=" + stanowisko +
                 '}';
     }
 }

@@ -4,27 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
+
 public class PracownikProcessing extends Narzedzia {
 
-
-//    static List<Pracownicy> listaPracownikow = new ArrayList<Pracownicy>();
-
+    static List<Pracownicy> listaPracownikowProdukcji = new ArrayList<Pracownicy>();
     {
-        //      listaPracownikow.add(new Pracownicy("Wiesiek", "Nowak", UUID.randomUUID()));
-        //      listaPracownikow.add(new Pracownicy("Stanisław", "Kowalski", UUID.randomUUID()));
-        //     listaPracownikow.add(new Pracownicy("Grażyna", "Malinowska", UUID.randomUUID()));
-        //     listaPracownikow.add(new Pracownicy("Bożena", "Nowakowska", UUID.randomUUID()));
-
+        listaPracownikowProdukcji.add(new Pracownicy("Wiesiek", "Nowak", UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI));
+        listaPracownikowProdukcji.add(new Pracownicy("Stanisław", "Kowalski",UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI ));
+        listaPracownikowProdukcji.add(new Pracownicy("Grażyna", "Malinowska",UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI ));
+        listaPracownikowProdukcji.add(new Pracownicy("Bożena", "Nowakowska",UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI ));
     }
 
-    static List<Pracownicy> listaPracownikowProdukcji = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaPracownikowBiura = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaPracownikowSekretariatu = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaPracownikowKsiegowosci = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaZastepcowPrezesa = new ArrayList<Pracownicy>();
-
     {
-        listaZastepcowPrezesa.add(new Pracownicy("Janusz", "Kowalski", UUID.randomUUID()));
+        listaZastepcowPrezesa.add(new Pracownicy("Janusz", "Kowalski", UUID.randomUUID(), Stanowisko.ZASTEPCA_PREZESA));
+    }
+
+    static List<Pracownicy> listyPolaczone = new ArrayList<>();
+    {
+        listyPolaczone.addAll(listaPracownikowProdukcji);
+        listyPolaczone.addAll(listaPracownikowBiura);
+        listyPolaczone.addAll(listaPracownikowSekretariatu);
+        listyPolaczone.addAll(listaPracownikowKsiegowosci);
     }
 
 
@@ -95,7 +99,8 @@ public class PracownikProcessing extends Narzedzia {
         String szukanyPracownikDoZwolnienia = odczyt.next();
         for (Pracownicy x : listaPracownikowProdukcji) {
             if (x.getUuid().equals(UUID.fromString(szukanyPracownikDoZwolnienia))) {
-                znalezionyPracownikDoZwolnienia =x;
+                znalezionyPracownikDoZwolnienia = x;
+                System.out.printf("Usunieto Pracownika: " + x);
                 break;
             }
         }

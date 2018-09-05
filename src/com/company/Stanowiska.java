@@ -1,5 +1,0 @@
-package com.company;
-
-public enum Stanowiska {
-    PREZES, ZASTEPCA_PREZESA, SEKRETARKA, KSIEGOWA, PRACOWNIK_BIUROWY, PRACOWNIK_PRODUKCJI
-}

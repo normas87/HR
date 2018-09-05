@@ -6,48 +6,51 @@ import java.util.UUID;
 public class Main extends Menu {
     private static PracownikProcessing pracownikProcessing = new PracownikProcessing();
 
-
     public static void main(String[] args) {
-
 
         boolean exit = false;
         do {
-            Pracownicy konstruktorPracownika = new Pracownicy("", "", UUID.randomUUID());
+            Pracownicy konstruktorPracownikaProdukcji = new Pracownicy("", "", UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI);
+            Pracownicy konstruktorPracownikaBiurowego = new Pracownicy("", "", UUID.randomUUID(), Stanowisko.PRACOWNIK_BIUROWY);
+            Pracownicy konstruktorPracownikaSekretariatu = new Pracownicy("", "", UUID.randomUUID(), Stanowisko.PRACOWNIK_SEKRETARIATU);
+            Pracownicy konstruktorPracownikaKsiegowosci = new Pracownicy("", "", UUID.randomUUID(), Stanowisko.PRACOWNIK_KSIEGOWOSCI);
+            Pracownicy konstruktorZastepcyPrezesa = new Pracownicy("", "", UUID.randomUUID(), Stanowisko.ZASTEPCA_PREZESA);
+            Pracownicy konstruktorPracownika = new Pracownicy("","");
 
-           Menu.wyswietlMenuGlowne();
+            Menu.wyswietlMenuGlowne();
             Scanner odczyt = new Scanner(System.in);
             int wyborMenuGlowne = odczyt.nextInt();
             switch (wyborMenuGlowne) {
                 case 1:
                     System.out.println("Wybrano 1 - Dodajemy nowego pracownika");
-                    Menu.wyswietlPodMenu1();
+                    Menu.wyswietlMenuDodawaniaNowegoPracownika();
                     int wyborPodMenu1 = odczyt.nextInt();
                     switch (wyborPodMenu1) {
                         case 1:
                             System.out.println("Pracownik produkcji: ");
-                            pracownikProcessing.dodajPracownikaProdukcji(konstruktorPracownika);
+                            pracownikProcessing.dodajPracownikaProdukcji(konstruktorPracownikaProdukcji);
                             break;
                         case 2:
                             System.out.println("Pracownik biura: ");
-                            pracownikProcessing.dodajPracownikaBiurowego(konstruktorPracownika);
+                            pracownikProcessing.dodajPracownikaBiurowego(konstruktorPracownikaBiurowego);
                             break;
                         case 3:
                             System.out.println("Pracownik sekretariatu: ");
-                            pracownikProcessing.dodajPracownikaSekretariatu(konstruktorPracownika);
+                            pracownikProcessing.dodajPracownikaSekretariatu(konstruktorPracownikaSekretariatu);
                             break;
                         case 4:
                             System.out.println("Pracownik Księgowości: ");
-                            pracownikProcessing.dodajPracownikaKsiegowosci(konstruktorPracownika);
+                            pracownikProcessing.dodajPracownikaKsiegowosci(konstruktorPracownikaKsiegowosci);
                             break;
                         case 5:
                             System.out.println("Nowy zastępca Prezesa: ");
-                            pracownikProcessing.dodajZastepcePrezesa(konstruktorPracownika);
+                            pracownikProcessing.dodajZastepcePrezesa(konstruktorZastepcyPrezesa);
                             break;
                         case 0:
                             System.out.println("Wybrano: Exit");
                             System.exit(0);
                         default:
-                            System.out.println("Nieprawidłowa operacja podmenu1");
+                            System.out.println("Nieprawidłowa operacja Menu Głównego");
                     }
                     break;
                 case 2:
@@ -56,20 +59,27 @@ public class Main extends Menu {
                     break;
                 case 3:
                     System.out.println("Wybrano 3 = Wyszukaj pracownika");
-                    Menu.wyswietlPodMenu3();
+                    wyswietlMenuSzukajPracownika();
                     odczyt.nextLine();
-                    int wyborPodMenu3 = odczyt.nextInt();
-                    switch (wyborPodMenu3) {
+                    int wyborMenuSzukaj = odczyt.nextInt();
+                    switch (wyborMenuSzukaj) {
                         case 1:
-                            SzukanieProcessing.znajdzPracownikaProdukcji();
+                            System.out.println("Wybrano 1 - szukanie po ID");
+                            SzukanieProcessing.znajdzPracownikaPoID();
+                            break;
+                        case 2:
+                            System.out.println("Wybrano 2 - szukanie po imieniu");
+                            SzukanieProcessing.znajdzPracownikaPoImieniu();
+                            break;
+                        case 3:
+                            System.out.println("Wybrano 3 - szukanie po nazwisku");
                             break;
                         case 0:
-                            System.out.println("Wybrano EXIT");
-                            System.exit(0);
+                            System.out.println("Wybrano 0 - wyświetlam poprzednie menu");
+                            wyswietlMenuSzukajPracownika();
                             break;
-                        default:
-                            System.out.println("Wybrano nieprawidłową wartość");
-                    } break;
+                    }
+                    break;
                 case 4:
                     System.out.println("4 = Wyświetl liste wszystkich pracownikow");
                     PracownikProcessing.wyswietlListePracownikow(konstruktorPracownika);
