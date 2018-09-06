@@ -8,22 +8,25 @@ import java.util.UUID;
 public class PracownikProcessing extends Narzedzia {
 
     static List<Pracownicy> listaPracownikowProdukcji = new ArrayList<Pracownicy>();
+
     {
         listaPracownikowProdukcji.add(new Pracownicy("Wiesiek", "Nowak", UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI));
-        listaPracownikowProdukcji.add(new Pracownicy("Stanisław", "Kowalski",UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI ));
-        listaPracownikowProdukcji.add(new Pracownicy("Grażyna", "Malinowska",UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI ));
-        listaPracownikowProdukcji.add(new Pracownicy("Bożena", "Nowakowska",UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI ));
+        listaPracownikowProdukcji.add(new Pracownicy("Stanisław", "Kowalski", UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI));
+        listaPracownikowProdukcji.add(new Pracownicy("Grażyna", "Malinowska", UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI));
+        listaPracownikowProdukcji.add(new Pracownicy("Bożena", "Nowakowska", UUID.randomUUID(), Stanowisko.PRACOWNIK_PRODUKCJI));
     }
 
     static List<Pracownicy> listaPracownikowBiura = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaPracownikowSekretariatu = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaPracownikowKsiegowosci = new ArrayList<Pracownicy>();
     static List<Pracownicy> listaZastepcowPrezesa = new ArrayList<Pracownicy>();
+
     {
         listaZastepcowPrezesa.add(new Pracownicy("Janusz", "Kowalski", UUID.randomUUID(), Stanowisko.ZASTEPCA_PREZESA));
     }
 
     static List<Pracownicy> listyPolaczone = new ArrayList<>();
+
     {
         listyPolaczone.addAll(listaPracownikowProdukcji);
         listyPolaczone.addAll(listaPracownikowBiura);
@@ -31,11 +34,29 @@ public class PracownikProcessing extends Narzedzia {
         listyPolaczone.addAll(listaPracownikowKsiegowosci);
     }
 
+    public void dodajPracownika(Pracownicy pracownik) {
+        System.out.println("Podaj imię nowego pracownika: ");
+        pracownik.setImie(odczyt.next());
+
+        System.out.println("Podaj jego nazwisko: ");
+        pracownik.setNazwisko(odczyt.next());
+
+
+
+    }
 
     public void dodajPracownikaProdukcji(Pracownicy pracownik) {
         dodajPracownika(pracownik);
-        listaPracownikowProdukcji.add(pracownik);
+        for (Pracownicy x : PracownikProcessing.listyPolaczone)
+
+            if (pracownik.getImie().equals(x.getImie()) && pracownik.getNazwisko().equals(x.getNazwisko())) {
+                System.out.println("Taki pracownik już istnieje, nie dodano nowego pracownika");
+                break;
+            } else listaPracownikowProdukcji.add(pracownik);
+        System.out.println("Pracownik :" + pracownik.getImie() + " " + pracownik.getNazwisko() + " " + pracownik.getUuid().toString());
+        System.out.println("+++ Dodano pracownika +++");
     }
+
 
     public void dodajPracownikaBiurowego(Pracownicy biurokrata) {
         dodajPracownika(biurokrata);
@@ -57,18 +78,6 @@ public class PracownikProcessing extends Narzedzia {
         listaZastepcowPrezesa.add(zastepcaPrezesa);
     }
 
-
-    public void dodajPracownika(Pracownicy pracownik) {
-        System.out.println("Podaj imię nowego pracownika: ");
-        pracownik.setImie(odczyt.next());
-
-        System.out.println("Podaj jego nazwisko: ");
-        pracownik.setNazwisko(odczyt.next());
-
-        System.out.println("Pracownik :" + pracownik.getImie() + " " + pracownik.getNazwisko() + " " + pracownik.getUuid().toString());
-
-        System.out.println("+++ Dodano pracownika +++");
-    }
 
     static void wyswietlListePracownikow(Pracownicy cokolwiek) {
         int sumaPracownikow =

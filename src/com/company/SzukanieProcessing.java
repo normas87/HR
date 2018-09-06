@@ -52,8 +52,8 @@ public class SzukanieProcessing extends PracownikProcessing {
 //        System.out.println("Pracownik produkcji ");
 //        System.out.println("Wpisz ID pracownika do wyświetlenia:");
 //        Narzedzia narzedzia = new Narzedzia();
-    Scanner odczyt = new Scanner(System.in);
-    String szukanyCiagZnakow = odczyt.nextLine();
+ //   Scanner odczyt = new Scanner(System.in);
+ //   String szukanyCiagZnakow = odczyt.nextLine();
 //        for (Pracownicy x : listaPracownikowProdukcji) {
 //            String pracownikJakoCiagZnakow = x.getImie() + x.getNazwisko() + x.getUuid();
 //            if (pracownikJakoCiagZnakow.equals(szukanyCiagZnakow)) {

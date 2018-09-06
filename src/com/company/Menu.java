@@ -16,27 +16,28 @@ public abstract class Menu {
     }
 
     public static void wyswietlMenuDodawaniaNowegoPracownika() {
-        System.out.println("1 Pracownik Produkcji");
-        System.out.println("2 Pracownik Biurowy");
-        System.out.println("3 Pracownik sekretariatu");
-        System.out.println("4 Pracownik księgowości");
-        System.out.println("5 Zastępca Prezesa");
+        System.out.println("1 = Pracownik produkcji");
+        System.out.println("2 = Pracownik biurowy");
+        System.out.println("3 = Pracownik sekretariatu");
+        System.out.println("4 = Pracownik księgowości");
+        System.out.println("5 = Zastępca Prezesa");
+        System.out.println("0 = powrót");
     }
 
-//    public static void wyswietlPodMenu4() {
-//        System.out.println("1 znajdź pracownika produkcji");
-//        System.out.println("2 znajdź pracownika biura");
-//        System.out.println("3 znajdź pracownika sekretariatu");
-//        System.out.println("4 znajdź pracownika księgowości");
-//        System.out.println("0 wróć do poprzedniego menu");
-//    }
 
     public static void wyswietlMenuSzukajPracownika() {
-        System.out.println("1 - szukaj po ID");
-        System.out.println("2 - szukaj po imieniu");
-        System.out.println("3 - szukaj po nazwisku");
-        System.out.println("0 - powrót");
+        System.out.println("1 = szukaj po ID");
+        System.out.println("2 = szukaj po imieniu");
+        System.out.println("3 = szukaj po nazwisku");
+        System.out.println("0 = powrót");
 
+    }
 
+    public static void wyswietlMenuPracownikówDanegoTypu() {
+        System.out.println("1 = wyświetl pracowników produkcji");
+        System.out.println("2 = wyświetl pracowników biura");
+        System.out.println("3 = wyświetl pracowników sekretariatu");
+        System.out.println("4 = wyświetl pracowników księgowości");
+        System.out.println("0 = powrót");
     }
 }
